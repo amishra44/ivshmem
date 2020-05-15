@@ -1,11 +1,20 @@
-# ivshmem Driver and Example
-## Building Source Code
+# ivshmem Host Server
+## Start ivshmem server
+
+`ivshmem-server -F -v`
+
+If server doesn't start, delete the shared memory file and retry
+
+`rm /tmp/ivshmem_socket`
+
+# ivshmem Guest (VM) Driver and Example
+## Build Source Code
 `make`
 
-## Loading Driver
+## Load Driver
 `sudo insmod ne_ivshmem_ldd_basic.ko`
 
-## Running Example
+## Run Example
 Write to shared memory (first VM)
 
 `./ne_ivshmem_shm_guest_usr -w hello`
